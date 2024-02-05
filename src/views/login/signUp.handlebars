@@ -1,0 +1,35 @@
+<!-- signup.hbs -->
+
+<form action="/signup" method="post">
+  <div class="mb-3">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" class="form-control" name="username" required>
+    {{#if (isInvalidInput 'username' username)}}
+      <div class="text-danger">{{errorMessage}}</div>
+    {{/if}}
+  </div>
+
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" name="password" required>
+    {{#if (isInvalidInput 'password' password)}}
+      <div class="text-danger">{{errorMessage}}</div>
+    {{/if}}
+  </div>
+
+  <div class="mb-3">
+    <label for="fullName" class="form-label">Full Name</label>
+    <input type="text" class="form-control" name="fullName" required>
+    {{!-- Puedes agregar validaciones adicionales para el nombre completo si es necesario --}}
+  </div>
+
+  <div class="mb-3">
+    <label for="confirmPassword" class="form-label">Confirm Password</label>
+    <input type="password" class="form-control" name="confirmPassword" required>
+    {{#if (isInvalidInput 'secondPass' confirmPassword password)}}
+      <div class="text-danger">{{errorMessage}}</div>
+    {{/if}}
+  </div>
+
+  <button type="submit" class="btn btn-primary">Signup</button>
+</form>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="../styles/styles.css">
+   <title>Document</title>
+   <script type="module" >
+         const formulario = document.getElementById('miFormulario');
+         const linkInput = document.getElementById('linkInput');
+         const  videoContainer = document.getElementById('videoInfoContainer');
+
+         formulario.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+    // Obtén el valor del campo de entrada
+         const videoUrl = linkInput.value;
+
+    // Crea un elemento <h2> para mostrar el valor y añádelo al div
+         const h2 = document.createElement('h2');
+         h2.textContent = videoUrl;
+         videoContainer.innerHTML = '';
+         videoContainer.appendChild(h2);
+    
+    // Luego, puedes enviar el valor al servidor si es necesario
+    fetch('/update', {
+        method: 'POST',
+        body: new URLSearchParams({ linkInput: videoUrl }),
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        },
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log(data);
+    });
+});
+
+
+
+   </script>
+</head>
+<body>
+   <main>
+      <h1>DESCARGAR VIDEOS DE YOUTUBE</h1>
+      <form action="enviado" id="miFormulario" method="post">
+         <label for="linkInput" class="linkLbl">Inserta el nombre</label>
+         <input type="text" placeholder="https://www.youtube.com/watch?v=APagf9HAlZY" id="linkInput" name="linkInput">
+         <input type="submit" value="enviar" id="linkSubmit">
+      </form>
+
+      <div id="videoInfoContainer">
+
+      </div>
+   </main>
+
+   <script src="../funciones/enviar.js"></script>
+</body>
+</html>

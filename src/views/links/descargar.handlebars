@@ -1,0 +1,59 @@
+      <div class="dwnloadCont">
+         <h1>Felicidades, se ha descargado en el fromato: {{data}} del con éxito.</h1>
+         <p>{{url}}</p>
+         <svg style="margin-top: 50px;" height="100px" width="100px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle style="fill:#22c55e;" cx="256" cy="256" r="256"></circle> <polygon style="fill:#ffffff;" points="230.288,365.04 137.456,292.528 157.152,267.312 223.04,318.768 329.984,161.28 356.448,179.248 "></polygon> </g></svg>
+
+         <form action="/links/search" method="GET">
+               <p>Descargar otro video:</p>
+               <input type="text" name="videoUrl" placeholder="Ingrese otro enlace de video" style="width: 70%; padding: 8px; margin-bottom: 10px;">
+               <input type="submit" class="btn" value="Descargar">
+         </form>
+      </div>
+
+   <style>
+      
+      .dwnloadCont {
+         width: 80%;
+         margin: 100px auto;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+
+      }
+      .dwnloadCont form {
+
+         width: 80%;
+         margin: 100px auto;
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+
+      }
+         h1 {
+               color: #333;
+               margin-bottom: 20px;
+               font-size: 24px;
+         }
+
+         .success-icon {
+               width: 80px;
+               fill: #4CAF50;
+               margin-bottom: 20px;
+         }
+
+         .btn {
+               padding: 10px 20px;
+               font-size: 16px;
+               border: none;
+               border-radius: 5px;
+               cursor: pointer;
+               background-color: #007bff;
+               color: #fff;
+               transition: background-color 0.3s ease;
+               text-decoration: none;
+         }
+
+         .btn:hover {
+               background-color: #0056b3;
+         }
+   </style>
